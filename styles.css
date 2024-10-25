@@ -1,0 +1,398 @@
+.avatar {
+    width : 200px;
+    height : 200px;
+    border-radius: 50%;
+}
+
+html {
+    overflow-x: hidden;
+    font-family: 'Work Sans', sans-serif;
+}
+
+html::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+html::-webkit-scrollbar
+{
+	width: 15px;
+	background-color: #F5F5F5;
+}
+
+html::-webkit-scrollbar-thumb
+{
+	background-color: rgb(29, 233, 182);
+}
+
+
+
+.hstack {
+    display : flex;
+    flex-direction: row;
+}
+
+html, body {
+    margin : 0;
+}
+
+/* <- DUAL GRID  */
+.dual-grid {
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+}
+
+.left {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.right {
+    background-color: white;
+    width: 50%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .dual-grid {
+        flex-direction: column;
+        height : 160vh;
+    }
+
+    .left, .right {
+        width: 100%;
+        height: 50%;
+        padding : 10%;
+    }
+}
+
+/*  DUAL GRID -> */
+
+/* <- GRID */
+.grid-page {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.grid-item {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.grid-item:hover {
+    transform: translateY(-10px);
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.item-title {
+    font-size: 1.5em;
+    color: #00c0f0; /* Gold color */
+    margin-bottom: 10px;
+}
+
+.category {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.study-guide {
+    color: #00c0f0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.study-guide:hover {
+    text-decoration: underline;
+}
+
+/* GRID -> */
+
+/* <- TIMER */
+@import url(https://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
+
+#days {
+  margin-right : 40px;
+  font-size: 250%;
+}
+#hours {
+  margin-right : 40px;
+  font-size: 200%;
+}
+#minutes {
+  margin-right : 40px;
+  font-size: 150%;
+}
+#seconds {
+  margin-right : 40px;
+  font-size: 100%;
+}
+
+.timer-text {
+  display: block;
+  font-size: 20px;
+  color: white;
+}
+
+.timer-container {
+    display : flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer {
+  width : 100vw;
+  height : 300px;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  line-height: 1;
+  padding: 20px;
+  font-size: 30px;
+
+  background-image: url("./assets/aitchison/acsec_landscape.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+
+
+  text-align: center;
+  font-family: 'Work Sans';
+
+  color: white;
+}
+/* TIMER -> */
+
+/* <- GALLERY */
+.gallery-container {
+    font-family: Lato, sans-serif;
+    margin: 0;
+    padding: 1rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    max-width: 100%;
+    width: 70rem;
+}
+
+.gallery-item {
+    margin: 0;
+}
+
+.gallery-figure {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.gallery-image {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 1000ms;
+}
+
+.gallery-figure::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    transform-origin: center;
+    opacity: 0;
+    transform: scale(2);
+    transition: opacity 300ms;
+}
+
+.gallery-caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 600ms, transform 600ms;
+}
+
+a:is(:hover, :focus) .gallery-figure::after {
+    opacity: 1;
+}
+
+a:is(:hover, :focus) .gallery-caption {
+    opacity: 1;
+    transition: opacity 600ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .gallery-caption {
+        transform: translate3d(0, 2rem, 0);
+    }
+
+    .gallery-figure::after {
+        border-radius: 50%;
+        opacity: 1;
+        transform: scale(0);
+        transition: transform 900ms;
+    }
+
+    a:is(:hover, :focus) .gallery-figure::after {
+        transform: scale(2.5);
+    }
+
+    a:is(:hover, :focus) .gallery-caption {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 600ms 400ms, transform 600ms 400ms;
+    }
+
+    a:is(:hover, :focus) .gallery-image {
+        transform: scale(1.2);
+    }
+}
+
+/* GALLERY -> */
+
+.image.fit {
+    display: block;
+    margin: 0 0 2em 0;
+    width: 100%;
+}
+.image {
+    border-radius: 4px;
+    border: 0;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.img-cards {
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.img-card {
+    height: 80%;
+    margin : 10%;
+    max-width: 80%;
+}
+
+@media (min-width: 600px) {
+  .img-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .img-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .img-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+
+#home {
+    background-image: url("./assets/aitchison/landscape_cropped.jpeg");
+}
+
+#sabza {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url("sabza.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-width: 100vw;
+    min-height: 75vh;
+}
+
+#roshnai {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url("roshnai.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-width: 100vw;
+    min-height: 75vh;
+}
+
+#khayali {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url("khayali.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-width: 100vw;
+    min-height: 75vh;
+}
+
+
+
+#taleem {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url("taleem.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-width: 100vw;
+    min-height: 75vh;
+}
+
+#aasra {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url("aasra.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-width: 100vw;
+    min-height: 75vh;
+}
+
+/* #categories {
+    background-color: white;
+} */
