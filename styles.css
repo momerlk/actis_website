@@ -139,20 +139,20 @@ html, body {
 @import url(https://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
 
 #days {
-  margin-right : 40px;
-  font-size: 250%;
+  margin-right : 17px;
+  font-size: 190%;
 }
 #hours {
-  margin-right : 40px;
-  font-size: 200%;
+  margin-right : 17px;
+  font-size: 140%;
 }
 #minutes {
-  margin-right : 40px;
-  font-size: 150%;
+  margin-right : 17px;
+  font-size: 90%;
 }
 #seconds {
-  margin-right : 40px;
-  font-size: 100%;
+  margin-right : 17px;
+  font-size: 60%;
 }
 
 .timer-text {
